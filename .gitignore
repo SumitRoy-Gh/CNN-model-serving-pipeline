@@ -29,3 +29,6 @@ serving/models/efficientnet_food/3/
 # Keep training/efficientnet_food_finetuned.keras ignored if desired, but since it is ~28MB we can keep it or ignore it.
 # Let's ignore it to keep git history clean, as it can be re-downloaded/re-created.
 training/efficientnet_food_finetuned.keras
+
+# Hugging Face Space folder
+hf_space/
