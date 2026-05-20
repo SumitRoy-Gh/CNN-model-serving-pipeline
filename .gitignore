@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.ipynb_checkpoints
+.venv
+venv/
+ENV/
+.env
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Locust Results
+benchmark/results*
+benchmark/results_*.csv
+
+# Exclude older model versions to keep the repository lightweight.
+# We will only keep version 4 (the corrected one) so the serving setup runs out-of-the-box.
+serving/models/efficientnet_food/1/
+serving/models/efficientnet_food/2/
+serving/models/efficientnet_food/3/
+# Keep training/efficientnet_food_finetuned.keras ignored if desired, but since it is ~28MB we can keep it or ignore it.
+# Let's ignore it to keep git history clean, as it can be re-downloaded/re-created.
+training/efficientnet_food_finetuned.keras

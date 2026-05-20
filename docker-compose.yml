@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  tf-serving:
+    image: tensorflow/serving:2.13.0
+    ports:
+      - "8501:8501" # REST API port
+      - "8500:8500" # gRPC port
+    volumes:
+      - ./serving/models:/models
+    environment:
+      - MODEL_NAME=efficientnet_food
+    command: >
+      --model_config_file=/models/models.config --rest_api_timeout_in_ms=30000
+    restart: unless-stopped
+
+  fastapi:
+    build: ./api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - tf-serving
+    environment:
+      - TF_SERVING_URL=http://tf-serving:8501
+    restart: unless-stopped
